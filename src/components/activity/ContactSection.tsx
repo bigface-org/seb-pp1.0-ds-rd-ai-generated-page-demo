@@ -1,4 +1,6 @@
 import { useLanguage } from '@/i18n/LanguageContext'
+import { DsButton } from '@/components/ds/DsButton'
+import { Phone } from 'lucide-react'
 
 const ContactSection = () => {
   const { t } = useLanguage()
@@ -9,19 +11,14 @@ const ContactSection = () => {
       <p className="text-ds-1 text-neutral-7 mb-4">{t('contact.phone')}</p>
       <p className="text-ds-1 text-neutral-6 mb-4">{t('contact.line')}</p>
       <div className="flex gap-3">
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 bg-success-5 text-neutral-0 px-5 py-2.5 rounded-1 text-ds-1 font-medium hover:bg-success-6 transition-colors"
-        >
+        <DsButton variant="outline" level="primary" size="medium" type="button" onClick={() => window.open('#')}>
           <img src="https://img.asiayo.com/static/images/line.svg" alt="LINE" className="w-5 h-5" />
           {t('contact.line')}
-        </a>
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 bg-success-5 text-neutral-0 px-5 py-2.5 rounded-1 text-ds-1 font-medium hover:bg-success-6 transition-colors"
-        >
+        </DsButton>
+        <DsButton variant="outline" level="primary" size="medium" type="button" onClick={() => window.open('#')}>
+          <Phone size={20} />
           {t('contact.agent')}
-        </a>
+        </DsButton>
       </div>
     </section>
   )
