@@ -224,7 +224,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'card.niigata.package': '参赛权＋精选住宿2晚',
     'card.niigata.price': '每人最低 NT$8,685 起',
 
-    'card.kobe.location': '�的库县 神户市',
+    'card.kobe.location': '兵库县 神户市',
     'card.kobe.title': '神户马拉松 2026/11/15',
     'card.kobe.desc1': '★日本百选赛事，日本最早的马拉松赛事',
     'card.kobe.desc2': '★时间限制7小时且赛道设计大多平坦，适合各种程度的跑者。',
