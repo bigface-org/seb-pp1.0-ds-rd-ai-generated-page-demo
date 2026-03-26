@@ -12,11 +12,11 @@ const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
   return (
     <a
       href="#"
-      className="block rounded-1 overflow-hidden shadow-raised hover:shadow-bulletin transition-shadow bg-neutral-0"
+      className="block rounded-0 overflow-hidden shadow-raised hover:shadow-bulletin transition-shadow bg-neutral-0"
     >
       {/* Image */}
       <div className="relative h-[200px] overflow-hidden">
-        <img src={image} alt={t(`card.${id}.title`)} className="w-full h-full object-cover" />
+        <img src={image} alt={t(`card.${id}.title`)} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
         {/* Location badge */}
         <span className="absolute top-3 left-3 bg-primary-5 text-neutral-0 text-ds-0 font-medium px-2 py-0.5 rounded-0">
           {t(`card.${id}.location`)}
