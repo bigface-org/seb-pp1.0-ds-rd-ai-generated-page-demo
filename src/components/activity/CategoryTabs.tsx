@@ -62,7 +62,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
         {showLeft && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
+            className="absolute left-0 top-0 z-10 flex items-center px-2 h-[42px] bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll left"
           >
             <ChevronLeft size={20} className="text-neutral-0" />
@@ -72,7 +72,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
         {/* Tabs */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide px-4 md:px-8"
+          className="flex overflow-x-auto scrollbar-hide px-4 md:px-8 no-scrollbar"
         >
           {mainTabs.map((tab) => (
             <button
@@ -93,7 +93,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
         {showRight && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
+            className="absolute right-0 top-0 z-10 flex items-center px-2 h-[42px] bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll right"
           >
             <ChevronRight size={20} className="text-neutral-0" />
