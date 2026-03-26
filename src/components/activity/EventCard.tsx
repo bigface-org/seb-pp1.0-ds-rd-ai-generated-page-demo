@@ -1,0 +1,48 @@
+import { useLanguage } from '@/i18n/LanguageContext'
+
+type EventCardProps = {
+  id: string
+  image: string
+  isPreparing?: boolean
+}
+
+const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
+  const { t } = useLanguage()
+
+  return (
+    <a
+      href="#"
+      className="block rounded-1 overflow-hidden shadow-raised hover:shadow-bulletin transition-shadow bg-neutral-0"
+    >
+      {/* Image */}
+      <div className="relative h-[200px] overflow-hidden">
+        <img src={image} alt={t(`card.${id}.title`)} className="w-full h-full object-cover" />
+        {/* Location badge */}
+        <span className="absolute top-3 left-3 bg-primary-5 text-neutral-0 text-ds-0 font-medium px-2 py-0.5 rounded-0">
+          {t(`card.${id}.location`)}
+        </span>
+        {/* Preparing overlay */}
+        {isPreparing && (
+          <div className="absolute inset-0 bg-neutral-9/50 flex items-center justify-center">
+            <span className="text-ds-3 font-bold text-neutral-0">{t(`card.${id}.preparing`)}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-4">
+        <h3 className="text-ds-2 font-bold text-neutral-8 mb-2">{t(`card.${id}.title`)}</h3>
+        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc1`)}</p>
+        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc2`)}</p>
+        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-3">{t(`card.${id}.desc3`)}</p>
+        <div className="border-t border-neutral-3 pt-3 mt-3">
+          <p className="text-ds-0 text-neutral-6">{t(`card.${id}.type`)}</p>
+          <p className="text-ds-0 text-neutral-6 mt-1">{t(`card.${id}.package`)}</p>
+          <p className="text-ds-1 font-bold text-primary-5 mt-2">{t(`card.${id}.price`)}</p>
+        </div>
+      </div>
+    </a>
+  )
+}
+
+export default EventCard
