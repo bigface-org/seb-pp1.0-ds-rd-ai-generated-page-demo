@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useLanguage } from '@/i18n/LanguageContext'
 import ActivityHeader from '@/components/activity/ActivityHeader'
 import HeroBanner from '@/components/activity/HeroBanner'
-import CategoryTabs from '@/components/activity/CategoryTabs'
+import { MainNavBar, SubNavBar } from '@/components/activity/CategoryTabs'
 import EventCard from '@/components/activity/EventCard'
 import ContactSection from '@/components/activity/ContactSection'
 import ActivityFooter from '@/components/activity/ActivityFooter'
@@ -35,24 +35,24 @@ const Activity = () => {
         <p className="text-ds-1 text-neutral-6 leading-relaxed">{t('hero.description')}</p>
       </section>
 
-      <CategoryTabs
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-        activeSubTab={activeSubTab}
-        onSubTabChange={setActiveSubTab}
-      />
+      {/* Wrap MainNavBar + all content below so sticky parent extends to bottom */}
+      <div>
+        <MainNavBar activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {/* Event cards grid */}
-      <section className="max-w-[1280px] mx-auto px-4 md:px-8 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {events.map((event) => (
-            <EventCard key={event.id} {...event} />
-          ))}
-        </div>
-      </section>
+        <SubNavBar activeSubTab={activeSubTab} onSubTabChange={setActiveSubTab} />
 
-      <ContactSection />
-      <ActivityFooter />
+        {/* Event cards grid */}
+        <section className="max-w-[1280px] mx-auto px-4 md:px-8 pb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {events.map((event) => (
+              <EventCard key={event.id} {...event} />
+            ))}
+          </div>
+        </section>
+
+        <ContactSection />
+        <ActivityFooter />
+      </div>
     </div>
   )
 }
