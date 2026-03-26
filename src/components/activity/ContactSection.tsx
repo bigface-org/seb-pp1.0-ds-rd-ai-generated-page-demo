@@ -4,7 +4,7 @@ const ContactSection = () => {
   const { t } = useLanguage()
 
   return (
-    <section className="max-w-[1280px] mx-auto px-6 py-10">
+    <section className="max-w-[1280px] mx-auto px-4 md:px-8 py-10">
       <h2 className="text-ds-4 font-bold text-neutral-8 mb-4">{t('contact.title')}</h2>
       <p className="text-ds-1 text-neutral-7 mb-4">{t('contact.phone')}</p>
       <p className="text-ds-1 text-neutral-6 mb-4">{t('contact.line')}</p>

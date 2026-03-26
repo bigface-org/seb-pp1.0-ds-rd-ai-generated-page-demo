@@ -14,7 +14,7 @@ const ActivityFooter = () => {
 
   return (
     <footer className="bg-neutral-8 text-neutral-4 py-8">
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <a href="#" className="text-ds-0 hover:text-neutral-0 transition-colors">{t('footer.terms')}</a>
           <a href="#" className="text-ds-0 hover:text-neutral-0 transition-colors">{t('footer.privacy')}</a>
