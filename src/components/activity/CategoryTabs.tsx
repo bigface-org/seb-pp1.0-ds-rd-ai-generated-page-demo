@@ -1,4 +1,6 @@
 import { useLanguage } from '@/i18n/LanguageContext'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type MainTabsProps = {
   activeTab: string
@@ -17,25 +19,86 @@ const mainTabs = [
 
 const subTabs = ['hot', 'pb', 'beginner', 'extreme', 'day_trip']
 
+const SCROLL_AMOUNT = 200
+
 export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
   const { t } = useLanguage()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [showLeft, setShowLeft] = useState(false)
+  const [showRight, setShowRight] = useState(false)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setShowLeft(el.scrollLeft > 0)
+    setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
+  }, [])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [checkScroll])
+
+  const scroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    el.scrollBy({
+      left: direction === 'right' ? SCROLL_AMOUNT : -SCROLL_AMOUNT,
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <div className="sticky top-0 z-header bg-primary-9">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex overflow-x-auto scrollbar-hide">
-        {mainTabs.map((tab) => (
+      <div className="max-w-[1280px] mx-auto relative">
+        {/* Left arrow */}
+        {showLeft && (
           <button
-            key={tab}
-            onClick={() => onTabChange(tab)}
-            className={`px-5 py-3 text-ds-1 font-medium whitespace-nowrap transition-colors ${
-              activeTab === tab
-                ? 'text-neutral-0 bg-primary-5'
-                : 'text-neutral-3 hover:text-neutral-0'
-            }`}
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
+            aria-label="Scroll left"
           >
-            {t(`tab.${tab}`)}
+            <ChevronLeft size={20} className="text-neutral-0" />
           </button>
-        ))}
+        )}
+
+        {/* Tabs */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scrollbar-hide px-4 md:px-8"
+        >
+          {mainTabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => onTabChange(tab)}
+              className={`px-5 py-3 text-ds-1 font-medium whitespace-nowrap transition-colors ${
+                activeTab === tab
+                  ? 'text-neutral-0 bg-primary-5'
+                  : 'text-neutral-3 hover:text-neutral-0'
+              }`}
+            >
+              {t(`tab.${tab}`)}
+            </button>
+          ))}
+        </div>
+
+        {/* Right arrow */}
+        {showRight && (
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={20} className="text-neutral-0" />
+          </button>
+        )}
       </div>
     </div>
   )
