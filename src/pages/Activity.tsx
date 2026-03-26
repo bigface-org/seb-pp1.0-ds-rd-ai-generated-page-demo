@@ -30,7 +30,7 @@ const Activity = () => {
       <HeroBanner />
 
       {/* Title section */}
-      <section className="max-w-[1280px] mx-auto px-6 py-8">
+      <section className="max-w-[1280px] mx-auto px-4 md:px-8 py-8">
         <h1 className="text-ds-4 font-bold text-neutral-8 mb-3">{t('hero.title')}</h1>
         <p className="text-ds-1 text-neutral-6 leading-relaxed">{t('hero.description')}</p>
       </section>
@@ -43,7 +43,7 @@ const Activity = () => {
       />
 
       {/* Event cards grid */}
-      <section className="max-w-[1280px] mx-auto px-6 pb-10">
+      <section className="max-w-[1280px] mx-auto px-4 md:px-8 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event) => (
             <EventCard key={event.id} {...event} />

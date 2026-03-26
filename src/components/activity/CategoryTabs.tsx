@@ -21,7 +21,7 @@ const CategoryTabs = ({ activeTab, onTabChange, activeSubTab, onSubTabChange }: 
     <div>
       {/* Main tabs */}
       <div className="bg-neutral-8">
-        <div className="max-w-[1280px] mx-auto flex overflow-x-auto scrollbar-hide">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex overflow-x-auto scrollbar-hide">
           {mainTabs.map((tab) => (
             <button
               key={tab}
@@ -39,7 +39,7 @@ const CategoryTabs = ({ activeTab, onTabChange, activeSubTab, onSubTabChange }: 
       </div>
 
       {/* Sub tabs */}
-      <div className="max-w-[1280px] mx-auto px-6 pt-5 pb-3">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-5 pb-3">
         <div className="flex flex-wrap gap-2">
           {subTabs.map((tab) => (
             <button
