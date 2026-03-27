@@ -62,7 +62,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
         {showLeft && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-0 z-10 flex items-center px-2 h-[42px] bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
+            className="absolute left-0 top-0 z-10 flex items-center px-2 h-[48px] bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll left"
           >
             <ChevronLeft size={20} className="text-neutral-0" />
@@ -78,7 +78,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
             <button
               key={tab}
               onClick={() => onTabChange(tab)}
-              className={`px-6 py-[11px] text-base leading-6 font-medium whitespace-nowrap transition-colors ${
+              className={`px-6 py-3 text-base leading-6 font-medium whitespace-nowrap transition-colors ${
                 activeTab === tab
                   ? 'text-neutral-0 bg-primary-5'
                   : 'text-neutral-3 hover:text-neutral-0'
@@ -93,7 +93,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
         {showRight && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-0 z-10 flex items-center px-2 h-[42px] bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
+            className="absolute right-0 top-0 z-10 flex items-center px-2 h-[48px] bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll right"
           >
             <ChevronRight size={20} className="text-neutral-0" />
