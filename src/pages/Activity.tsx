@@ -39,10 +39,10 @@ const Activity = () => {
       <div>
         <MainNavBar activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <SubNavBar activeSubTab={activeSubTab} onSubTabChange={setActiveSubTab} />
+        <div className="bg-neutral-2">
+          <SubNavBar activeSubTab={activeSubTab} onSubTabChange={setActiveSubTab} />
 
-        {/* Event cards grid */}
-        <section className="bg-neutral-3">
+          {/* Event cards grid */}
           <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {events.map((event) => (
@@ -50,7 +50,7 @@ const Activity = () => {
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
         <div className="bg-neutral-0">
           <ContactSection />
