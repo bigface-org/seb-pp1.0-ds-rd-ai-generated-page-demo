@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '@/i18n/LanguageContext'
+import MobileContactBar from '@/components/activity/MobileContactBar'
 import ActivityHeader from '@/components/activity/ActivityHeader'
 import HeroBanner from '@/components/activity/HeroBanner'
 import { MainNavBar, SubNavBar } from '@/components/activity/CategoryTabs'
