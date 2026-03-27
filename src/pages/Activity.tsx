@@ -26,7 +26,7 @@ const Activity = () => {
   const [activeSubTab, setActiveSubTab] = useState('hot')
 
   return (
-    <div className="min-h-screen bg-neutral-1">
+    <div className="min-h-screen bg-neutral-1 pb-[72px] md:pb-0">
       <ActivityHeader />
       <HeroBanner />
 
@@ -58,6 +58,7 @@ const Activity = () => {
         </div>
         <ActivityFooter />
       </div>
+      <MobileContactBar />
     </div>
   )
 }
