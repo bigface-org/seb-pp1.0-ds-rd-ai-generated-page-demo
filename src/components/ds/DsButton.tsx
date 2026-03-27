@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 export const dsButtonVariants = cva(
   [
-    'box-border inline-flex items-center justify-center',
+    'box-border inline-flex items-center justify-center gap-1',
     'cursor-pointer font-medium border border-solid',
     'transition-colors',
     'disabled:opacity-[0.48] disabled:cursor-not-allowed',
