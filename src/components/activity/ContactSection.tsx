@@ -12,11 +12,11 @@ const ContactSection = () => {
       <p className="text-ds-1 text-neutral-6 mb-4">{t('contact.line')}</p>
       <div className="flex gap-3">
         <DsButton variant="outline" level="primary" size="large" type="button" onClick={() => window.open('#')}>
-          <img src="https://img.asiayo.com/static/images/line.svg" alt="LINE" className="w-5 h-5" />
+          <img src="https://img.asiayo.com/static/images/line.svg" alt="LINE" className="w-4 h-4" />
           {t('contact.line')}
         </DsButton>
         <DsButton variant="outline" level="primary" size="large" type="button" onClick={() => window.open('#')}>
-          <Phone size={20} />
+          <Phone size={16} />
           {t('contact.agent')}
         </DsButton>
       </div>
