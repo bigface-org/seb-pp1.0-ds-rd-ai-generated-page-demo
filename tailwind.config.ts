@@ -96,6 +96,7 @@ export default {
         lg: "24px",
       },
       boxShadow: {
+        card: "var(--shadow-card)",
         raised: "var(--shadow-raised)",
         dropdown: "var(--shadow-dropdown)",
         navigation: "var(--shadow-navigation)",

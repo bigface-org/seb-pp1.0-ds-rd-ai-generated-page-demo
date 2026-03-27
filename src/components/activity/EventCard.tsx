@@ -13,7 +13,7 @@ const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
   return (
     <a
       href="#"
-      className="group block rounded-0 overflow-hidden shadow-raised hover:shadow-bulletin transition-shadow bg-neutral-0"
+      className="group block rounded-0 overflow-hidden shadow-card hover:shadow-bulletin transition-shadow bg-neutral-0"
     >
       {/* Image */}
       <div className="relative h-[200px] overflow-hidden">
