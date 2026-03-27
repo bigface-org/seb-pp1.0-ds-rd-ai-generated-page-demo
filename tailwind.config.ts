@@ -97,6 +97,7 @@ export default {
       },
       boxShadow: {
         card: "var(--shadow-card)",
+        "card-hover": "var(--shadow-card-hover)",
         raised: "var(--shadow-raised)",
         dropdown: "var(--shadow-dropdown)",
         navigation: "var(--shadow-navigation)",
