@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '@/i18n/LanguageContext'
+import MobileContactBar from '@/components/activity/MobileContactBar'
 import ActivityHeader from '@/components/activity/ActivityHeader'
 import HeroBanner from '@/components/activity/HeroBanner'
 import { MainNavBar, SubNavBar } from '@/components/activity/CategoryTabs'
@@ -25,7 +26,7 @@ const Activity = () => {
   const [activeSubTab, setActiveSubTab] = useState('hot')
 
   return (
-    <div className="min-h-screen bg-neutral-1">
+    <div className="min-h-screen bg-neutral-1 pb-[72px] md:pb-0">
       <ActivityHeader />
       <HeroBanner />
 
@@ -57,6 +58,7 @@ const Activity = () => {
         </div>
         <ActivityFooter />
       </div>
+      <MobileContactBar />
     </div>
   )
 }
