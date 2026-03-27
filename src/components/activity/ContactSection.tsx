@@ -16,7 +16,7 @@ const ContactSection = () => {
           {t('contact.line')}
         </DsButton>
         <DsButton variant="outline" level="primary" size="large" type="button" onClick={() => window.open('#')}>
-          <Phone size={16} />
+          <Phone size={16} fill="currentColor" />
           {t('contact.agent')}
         </DsButton>
       </div>
