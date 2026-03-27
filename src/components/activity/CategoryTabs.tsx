@@ -78,7 +78,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
             <button
               key={tab}
               onClick={() => onTabChange(tab)}
-              className={`px-5 py-3 text-ds-1 font-medium whitespace-nowrap transition-colors ${
+              className={`px-6 py-[11px] text-base leading-6 font-medium whitespace-nowrap transition-colors ${
                 activeTab === tab
                   ? 'text-neutral-0 bg-primary-5'
                   : 'text-neutral-3 hover:text-neutral-0'
@@ -114,7 +114,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
           <button
             key={tab}
             onClick={() => onSubTabChange(tab)}
-            className={`px-4 py-1.5 rounded-full text-ds-1 border transition-colors ${
+            className={`px-5 py-[7px] rounded-full text-base leading-6 border transition-colors ${
               activeSubTab === tab
                 ? 'bg-primary-5 text-neutral-0 border-primary-5'
                 : 'bg-neutral-0 text-neutral-7 border-neutral-4 hover:border-primary-5 hover:text-primary-5'
