@@ -117,7 +117,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
             className={`px-5 py-[7px] rounded-full text-base leading-6 border transition-colors ${
               activeSubTab === tab
                 ? 'bg-primary-5 text-neutral-0 border-primary-5'
-                : 'bg-neutral-0 text-neutral-7 border-neutral-5 hover:bg-neutral-2 active:bg-neutral-3'
+                : 'bg-neutral-0 text-neutral-7 border-neutral-4 hover:border-primary-5 hover:text-primary-5'
             }`}
           >
             {t(`subtab.${tab}`)}
