@@ -154,3 +154,13 @@
     font-family: 'Noto Sans', 'Noto Sans TC', sans-serif, '.PingFangTC', 'Microsoft JhengHei';
   }
 }
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
