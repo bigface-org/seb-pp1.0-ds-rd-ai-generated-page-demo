@@ -145,7 +145,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
         {showLeft && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-[var(--shadow-03)]"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-03"
             aria-label="Scroll left"
           >
             <ChevronLeft size={20} />
@@ -176,7 +176,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
         {showRight && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-[var(--shadow-03)]"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-03"
             aria-label="Scroll right"
           >
             <ChevronRight size={20} />

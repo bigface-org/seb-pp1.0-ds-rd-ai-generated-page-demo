@@ -96,6 +96,9 @@ export default {
         lg: "24px",
       },
       boxShadow: {
+        "01": "var(--shadow-01)",
+        "02": "var(--shadow-02)",
+        "03": "var(--shadow-03)",
         card: "var(--shadow-card)",
         "card-hover": "var(--shadow-card-hover)",
         raised: "var(--shadow-raised)",
