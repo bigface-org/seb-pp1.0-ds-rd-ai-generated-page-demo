@@ -65,7 +65,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
             className="absolute left-0 top-0 z-10 flex items-center px-2 h-[48px] bg-gradient-to-r from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll left"
           >
-            <ChevronLeft size={20} className="text-neutral-0" />
+            <ChevronLeft size={12} className="text-neutral-0" />
           </button>
         )}
 
@@ -96,7 +96,7 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
             className="absolute right-0 top-0 z-10 flex items-center px-2 h-[48px] bg-gradient-to-l from-primary-9 via-primary-9/80 to-transparent"
             aria-label="Scroll right"
           >
-            <ChevronRight size={20} className="text-neutral-0" />
+            <ChevronRight size={12} className="text-neutral-0" />
           </button>
         )}
       </div>
@@ -148,7 +148,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
             className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-03"
             aria-label="Scroll left"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={12} />
           </button>
         )}
 
@@ -179,7 +179,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
             className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors shadow-03"
             aria-label="Scroll right"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={12} />
           </button>
         )}
       </div>
