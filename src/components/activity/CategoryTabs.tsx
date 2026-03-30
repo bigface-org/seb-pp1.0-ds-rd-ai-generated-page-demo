@@ -106,15 +106,61 @@ export const MainNavBar = ({ activeTab, onTabChange }: MainTabsProps) => {
 
 export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
   const { t } = useLanguage()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [showLeft, setShowLeft] = useState(false)
+  const [showRight, setShowRight] = useState(false)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setShowLeft(el.scrollLeft > 0)
+    setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
+  }, [])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [checkScroll])
+
+  const scroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    el.scrollBy({
+      left: direction === 'right' ? SCROLL_AMOUNT : -SCROLL_AMOUNT,
+      behavior: 'smooth',
+    })
+  }
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-5 pb-3">
-      <div className="flex flex-wrap gap-2">
+    <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-5 pb-3 relative">
+      {/* Left arrow */}
+      {showLeft && (
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-10 h-10 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft size={20} />
+        </button>
+      )}
+
+      {/* Tabs */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto no-scrollbar scrollbar-hide gap-2"
+      >
         {subTabs.map((tab) => (
           <button
             key={tab}
             onClick={() => onSubTabChange(tab)}
-            className={`px-5 py-[7px] rounded-full text-base leading-6 border transition-colors ${
+            className={`px-5 py-[7px] rounded-full text-base leading-6 border transition-colors whitespace-nowrap flex-shrink-0 ${
               activeSubTab === tab
                 ? 'bg-primary-5 text-neutral-0 border-primary-5'
                 : 'bg-neutral-0 text-primary-5 border-primary-5 hover:bg-primary-0 active:bg-primary-1'
@@ -124,6 +170,17 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
           </button>
         ))}
       </div>
+
+      {/* Right arrow */}
+      {showRight && (
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-10 h-10 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 hover:bg-neutral-2 active:bg-neutral-3 transition-colors"
+          aria-label="Scroll right"
+        >
+          <ChevronRight size={20} />
+        </button>
+      )}
     </div>
   )
 }
