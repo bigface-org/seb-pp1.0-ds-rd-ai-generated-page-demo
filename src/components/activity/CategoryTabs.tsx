@@ -139,7 +139,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
   }
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-5 pb-3 relative">
+    <div className="max-w-[1280px] mx-auto pt-5 pb-3 relative">
       {/* Left arrow */}
       {showLeft && (
         <button
@@ -154,7 +154,7 @@ export const SubNavBar = ({ activeSubTab, onSubTabChange }: SubTabsProps) => {
       {/* Tabs */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto no-scrollbar scrollbar-hide gap-2"
+        className="flex overflow-x-auto no-scrollbar gap-2 px-4 md:px-8"
       >
         {subTabs.map((tab) => (
           <button
