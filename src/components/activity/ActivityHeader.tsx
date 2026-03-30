@@ -20,6 +20,7 @@ const ActivityHeader = () => {
   const locales: { value: Locale; label: string }[] = [
     { value: 'zh-TW', label: '繁體中文(台灣)' },
     { value: 'zh-CN', label: '简体中文' },
+    { value: 'en', label: 'English' },
   ]
 
   return (
