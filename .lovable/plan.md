@@ -1,15 +1,19 @@
 
 
-## 調整商品卡片 Default Shadow
+## HeroBanner 加入左右滑動功能
 
-將 `EventCard` 的預設陰影從目前的 `shadow-raised` 改為符合指定數值的陰影。
+將頂部 Banner 從純自動輪播改為支援使用者手動左右滑動（拖曳/觸控滑動）。
 
-### 需要的變更
+### 實作方式
 
-1. **新增 shadow token** (`src/index.css` + `tailwind.config.ts`)
-   - 新增 `--shadow-card` 或直接更新現有 token，值為 `0 3px 6px 0 rgba(0, 0, 0, 0.16)`
-   - 在 tailwind config 中對應新增 `card: "var(--shadow-card)"`
+使用專案中已有的 **Embla Carousel** 套件（已用於 `src/components/ui/carousel.tsx`），替換 HeroBanner 現有的手動 opacity 切換邏輯。
 
-2. **更新 EventCard** (`src/components/activity/EventCard.tsx`)
-   - 將 `shadow-raised` 替換為新的 shadow class（如 `shadow-card`）
+### 變更檔案
+
+**`src/components/activity/HeroBanner.tsx`**
+- 引入 `useEmblaCarousel` 和 `Autoplay` plugin
+- 用 Embla 的 `ref` 和 slide 結構替換現有的 `img` 堆疊 + opacity 切換
+- 自動輪播保留（5 秒），使用者拖曳時暫停
+- 底部圓點指示器改為讀取 Embla 的 `selectedScrollSnap`，點擊時呼叫 `scrollTo`
+- 支援桌面拖曳與行動裝置觸控滑動
 
