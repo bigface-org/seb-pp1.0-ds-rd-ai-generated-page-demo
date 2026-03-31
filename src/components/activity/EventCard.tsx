@@ -39,10 +39,12 @@ const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
         <div className="border-t border-neutral-3 pt-3 mt-3">
           <p className="text-ds-0 text-neutral-6">{t(`card.${id}.type`)}</p>
           <p className="text-ds-0 text-neutral-6 mt-1">{t(`card.${id}.package`)}</p>
-          <p className="text-ds-1 font-normal text-danger-6 mt-2 flex items-center gap-1">
-            <Tag size={16} className="text-danger-6" fill="currentColor" />
-            {t(`card.${id}.price`)}
-          </p>
+          <div className="border-t border-neutral-3 pt-3 mt-3">
+            <p className="text-ds-1 font-normal text-danger-6 flex items-center gap-1">
+              <Tag size={16} className="text-danger-6" fill="currentColor" />
+              {t(`card.${id}.price`)}
+            </p>
+          </div>
         </div>
       </div>
     </a>
