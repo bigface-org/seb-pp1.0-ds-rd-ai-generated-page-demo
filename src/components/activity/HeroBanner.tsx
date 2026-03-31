@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 const bannerImages = [
   'https://gsimg.asiayo.com/ay-image-upload/1767858153850_2026_%E6%B2%B3%E5%8F%A3%E6%B9%96%E6%B9%96%E4%B8%8A%E7%A5%AD%E5%8F%8A%E7%99%BB%E5%B1%B1%E8%A1%8C%E7%A8%8B_Resize_PP2.0_1920x600.jpg',
@@ -9,35 +11,51 @@ const bannerImages = [
 ]
 
 const HeroBanner = () => {
-  const [current, setCurrent] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true }),
+  ])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % bannerImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on('select', onSelect)
+    return () => { emblaApi.off('select', onSelect) }
+  }, [emblaApi, onSelect])
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi],
+  )
 
   return (
     <div className="relative w-full h-[360px] md:h-[480px] overflow-hidden bg-neutral-8">
-      {bannerImages.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt={`banner-${i}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            i === current ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-      ))}
+      <div ref={emblaRef} className="h-full overflow-hidden">
+        <div className="flex h-full">
+          {bannerImages.map((src, i) => (
+            <div key={i} className="flex-[0_0_100%] min-w-0 h-full">
+              <img
+                src={src}
+                alt={`banner-${i}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       {/* Dots */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {bannerImages.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
+            onClick={() => scrollTo(i)}
             className={`w-[10px] h-[10px] rounded-full transition-colors ${
-              i === current ? 'bg-primary-5' : 'bg-neutral-0/60'
+              i === selectedIndex ? 'bg-primary-5' : 'bg-neutral-0/60'
             }`}
           />
         ))}
