@@ -34,7 +34,7 @@ const HeroBanner = () => {
   )
 
   return (
-    <div className="relative w-full h-[360px] md:h-[480px] overflow-hidden bg-neutral-8">
+    <div className="relative w-full h-[200px] md:h-[400px] overflow-hidden bg-neutral-8">
       <div ref={emblaRef} className="h-full overflow-hidden">
         <div className="flex h-full">
           {bannerImages.map((src, i) => (
