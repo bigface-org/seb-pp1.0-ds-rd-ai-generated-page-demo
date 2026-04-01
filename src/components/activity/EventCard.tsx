@@ -33,16 +33,17 @@ const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
       {/* Content */}
       <div className="p-4">
         <h3 className="text-ds-2 md:text-ds-3 font-bold text-neutral-8 mb-2">{t(`card.${id}.title`)}</h3>
-        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc1`)}</p>
-        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc2`)}</p>
-        <p className="text-ds-0 text-neutral-6 leading-relaxed mb-3">{t(`card.${id}.desc3`)}</p>
+        <p className="text-ds-1 font-normal text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc1`)}</p>
+        <p className="text-ds-1 font-normal text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc2`)}</p>
+        <p className="text-ds-1 font-normal text-neutral-6 leading-relaxed mb-3">{t(`card.${id}.desc3`)}</p>
         <div className="border-t border-neutral-3 pt-3 mt-3">
-          <p className="text-ds-0 text-neutral-6">{t(`card.${id}.type`)}</p>
-          <p className="text-ds-0 text-neutral-6 mt-1">{t(`card.${id}.package`)}</p>
+          <p className="text-ds-1 font-normal text-neutral-6">{t(`card.${id}.type`)}</p>
+          <p className="text-ds-1 font-normal text-neutral-6 mt-1">{t(`card.${id}.package`)}</p>
           <div className="border-t border-neutral-3 pt-3 mt-3">
             <p className="text-ds-1 font-normal text-danger-6 flex items-center gap-1">
               <Tag size={16} className="text-danger-6" fill="currentColor" />
               {t(`card.${id}.price`)}
+            </p>
             </p>
           </div>
         </div>
