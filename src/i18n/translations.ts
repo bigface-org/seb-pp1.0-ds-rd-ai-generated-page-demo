@@ -256,8 +256,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Contact
     'contact.title': '联系客服',
     'contact.phone': '致电咨询：02-7755-0575 分机 7',
-    'contact.lineDesc': '或点击以下按钮 LINE 在线咨询',
-    'contact.line': 'LINE 在线咨询',
+    'contact.lineDesc': '或点击以下按钮 在线咨询',
+    'contact.line': '在线咨询',
     'contact.agent': '咨询专员',
 
     // Footer
