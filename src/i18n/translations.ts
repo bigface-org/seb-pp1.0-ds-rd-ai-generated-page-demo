@@ -121,7 +121,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Contact
     'contact.title': '聯繫客服',
     'contact.phone': '致電洽詢：02-7755-0575 分機 7',
-    'contact.line': '線上諮詢',
+    'contact.lineDesc': '或點擊以下按鈕 LINE 線上諮詢',
+    'contact.line': 'LINE 線上諮詢',
     'contact.agent': '洽詢專員',
 
     // Footer
@@ -255,7 +256,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Contact
     'contact.title': '联系客服',
     'contact.phone': '致电咨询：02-7755-0575 分机 7',
-    'contact.line': '在线咨询',
+    'contact.lineDesc': '或点击以下按钮 LINE 在线咨询',
+    'contact.line': 'LINE 在线咨询',
     'contact.agent': '咨询专员',
 
     // Footer
@@ -389,7 +391,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Contact
     'contact.title': 'Contact Us',
     'contact.phone': 'Call us: 02-7755-0575 ext. 7',
-    'contact.line': 'Chat Online',
+    'contact.lineDesc': 'Or click the button below to chat on LINE',
+    'contact.line': 'LINE Chat',
     'contact.agent': 'Talk to an Agent',
 
     // Footer
