@@ -33,7 +33,7 @@ const Activity = () => {
       {/* Title section */}
       <section className="max-w-[1280px] mx-auto px-4 md:px-8 py-8">
         <h1 className="text-ds-3 md:text-ds-5 font-bold text-neutral-8 mb-3">{t('hero.title')}</h1>
-        <p className="text-ds-1 text-neutral-6 leading-relaxed">{t('hero.description')}</p>
+        <p className="text-ds-1 font-normal md:text-ds-3 md:font-bold text-neutral-6">{t('hero.description')}</p>
       </section>
 
       {/* Wrap MainNavBar + all content below so sticky parent extends to bottom */}
