@@ -41,7 +41,9 @@ const Activity = () => {
         <MainNavBar activeTab={activeTab} onTabChange={setActiveTab} />
 
         <div className="bg-neutral-2">
-          <SubNavBar activeSubTab={activeSubTab} onSubTabChange={setActiveSubTab} />
+          <div className="max-w-[1280px] mx-auto pt-5 pb-3">
+            <SubNavBar activeSubTab={activeSubTab} onSubTabChange={setActiveSubTab} />
+          </div>
 
           {/* Event cards grid */}
           <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-10">
