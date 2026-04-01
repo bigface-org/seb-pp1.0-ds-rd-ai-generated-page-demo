@@ -121,7 +121,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Contact
     'contact.title': '聯繫客服',
     'contact.phone': '致電洽詢：02-7755-0575 分機 7',
-    'contact.lineDesc': '或點擊以下按鈕 線上諮詢',
+    'contact.lineDesc': '或點擊以下按鈕 LINE 線上諮詢',
     'contact.line': '線上諮詢',
     'contact.agent': '洽詢專員',
 
