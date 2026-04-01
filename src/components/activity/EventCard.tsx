@@ -32,7 +32,7 @@ const EventCard = ({ id, image, isPreparing }: EventCardProps) => {
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="text-ds-2 font-bold text-neutral-8 mb-2">{t(`card.${id}.title`)}</h3>
+        <h3 className="text-ds-2 md:text-ds-3 font-bold text-neutral-8 mb-2">{t(`card.${id}.title`)}</h3>
         <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc1`)}</p>
         <p className="text-ds-0 text-neutral-6 leading-relaxed mb-1">{t(`card.${id}.desc2`)}</p>
         <p className="text-ds-0 text-neutral-6 leading-relaxed mb-3">{t(`card.${id}.desc3`)}</p>
