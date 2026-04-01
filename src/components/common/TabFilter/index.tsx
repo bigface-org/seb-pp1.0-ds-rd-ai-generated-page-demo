@@ -181,7 +181,7 @@ const TabFilter = ({
           'flex scroll-smooth no-scrollbar',
           type === 'main'
             ? 'flex-nowrap overflow-x-auto'
-            : 'flex-wrap md:flex-nowrap md:overflow-x-auto',
+            : 'flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible',
         )}
       >
         {tabs.map((tab) => {
