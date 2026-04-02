@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { useDebounce } from '@/hooks/useDebounce'
+import { DsNavBar, DsNavBarArrow, DsNavBarItem } from '@/components/ds/DsNavBar'
 import type {
   RenderArrowButtonParams,
   RenderTabParams,
@@ -127,16 +128,19 @@ const TabFilter = ({
       return renderLeftArrow({ ...commonArrowProps, onClick: onPrevClick, isVisible: showPrev })
     }
 
+    if (type === 'main') {
+      return (
+        <DsNavBarArrow direction="left" onClick={onPrevClick} aria-label="Scroll left">
+          <ChevronLeft size={24} />
+        </DsNavBarArrow>
+      )
+    }
+
     return (
       <button
         onClick={onPrevClick}
         aria-label="Scroll left"
-        className={cn(
-          'absolute z-10 flex items-center justify-center lg:hidden',
-          type === 'main'
-            ? 'left-0 top-0 bottom-0 w-12 bg-primary-9 text-neutral-0 hover:bg-primary-8 active:bg-primary-7'
-            : 'left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 shadow-03 hover:bg-neutral-2 active:bg-neutral-3',
-        )}
+        className="absolute z-10 flex items-center justify-center lg:hidden left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 shadow-03 hover:bg-neutral-2 active:bg-neutral-3"
       >
         <ChevronLeft size={24} />
       </button>
@@ -150,16 +154,19 @@ const TabFilter = ({
       return renderRightArrow({ ...commonArrowProps, onClick: onNextClick, isVisible: showNext })
     }
 
+    if (type === 'main') {
+      return (
+        <DsNavBarArrow direction="right" onClick={onNextClick} aria-label="Scroll right">
+          <ChevronRight size={24} />
+        </DsNavBarArrow>
+      )
+    }
+
     return (
       <button
         onClick={onNextClick}
         aria-label="Scroll right"
-        className={cn(
-          'absolute z-10 flex items-center justify-center lg:hidden',
-          type === 'main'
-            ? 'right-0 top-0 bottom-0 w-12 bg-primary-9 text-neutral-0 hover:bg-primary-8 active:bg-primary-7'
-            : 'right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 shadow-03 hover:bg-neutral-2 active:bg-neutral-3',
-        )}
+        className="absolute z-10 flex items-center justify-center lg:hidden right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-neutral-5 bg-neutral-0 text-neutral-7 shadow-03 hover:bg-neutral-2 active:bg-neutral-3"
       >
         <ChevronRight size={24} />
       </button>
@@ -195,6 +202,14 @@ const TabFilter = ({
             return renderTab({ tab, isActive, onClick, ref })
           }
 
+          if (type === 'main') {
+            return (
+              <DsNavBarItem key={tab.id} ref={ref} onClick={onClick} active={isActive}>
+                {tab.label}
+              </DsNavBarItem>
+            )
+          }
+
           return (
             <button
               key={tab.id}
@@ -202,20 +217,11 @@ const TabFilter = ({
               onClick={onClick}
               className={cn(
                 'text-ds-2 font-medium whitespace-nowrap flex-shrink-0 transition-colors',
-                type === 'main'
-                  ? cn(
-                      'px-6 py-3',
-                      isActive
-                        ? 'bg-primary-5 text-neutral-0'
-                        : 'bg-primary-9 text-neutral-3 hover:text-neutral-0',
-                    )
-                  : cn(
-                      'px-5 py-[7px] rounded-full border border-primary-5 mb-2',
-                      '[&:not(:first-child)]:ml-2 first:ml-4 md:first:ml-8 lg:first:ml-0',
-                      isActive
-                        ? 'bg-primary-5 text-neutral-0 hover:bg-primary-6 active:bg-primary-7'
-                        : 'bg-neutral-0 text-primary-5 hover:bg-primary-0 active:bg-primary-1',
-                    ),
+                'px-5 py-[7px] rounded-full border border-primary-5 mb-2',
+                '[&:not(:first-child)]:ml-2 first:ml-4 md:first:ml-8 lg:first:ml-0',
+                isActive
+                  ? 'bg-primary-5 text-neutral-0 hover:bg-primary-6 active:bg-primary-7'
+                  : 'bg-neutral-0 text-primary-5 hover:bg-primary-0 active:bg-primary-1',
               )}
             >
               {tab.label}
@@ -230,18 +236,16 @@ const TabFilter = ({
 
   if (!hasOuter) return filterContent
 
+  if (type === 'main') {
+    return (
+      <DsNavBar top={searchBarOffset ?? 0} zIndex={zIndex ?? 2}>
+        {filterContent}
+      </DsNavBar>
+    )
+  }
+
   return (
-    <div
-      className={cn(
-        type === 'main'
-          ? 'sticky w-full bg-primary-9 shadow-navigation box-border'
-          : 'pt-5 md:pt-6',
-      )}
-      style={{
-        top: type === 'main' ? (searchBarOffset ?? 0) : undefined,
-        zIndex: type === 'main' ? (zIndex ?? 2) : undefined,
-      }}
-    >
+    <div className="pt-5 md:pt-6">
       {filterContent}
     </div>
   )
