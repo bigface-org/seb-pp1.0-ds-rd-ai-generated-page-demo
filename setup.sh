@@ -47,24 +47,33 @@ else
   exit 1
 fi
 
-# ── 3. 安裝專案 dependencies ─────────────────
+# ── 3. 確認 yarn 是否已安裝 ──────────────────
+if ! command -v yarn &> /dev/null; then
+  info "未偵測到 yarn，正在安裝..."
+  npm install -g yarn
+  ok "yarn 安裝完成"
+else
+  ok "yarn $(yarn -v) 已安裝，略過"
+fi
+
+# ── 4. 安裝專案 dependencies ─────────────────
 if [ ! -f "package.json" ]; then
   fail "找不到 package.json，請確認你在正確的專案資料夾裡。"
 fi
 
 info "安裝專案套件..."
-npm install
+yarn install
 ok "套件安裝完成"
 
-# ── 4. 完成 ──────────────────────────────────
+# ── 5. 完成 ──────────────────────────────────
 echo ""
 echo "========================================="
 ok "環境安裝完成！"
 echo ""
 echo "  執行以下指令啟動專案："
 echo ""
-echo "    npm run dev"
+echo "    yarn dev"
 echo ""
-echo "  瀏覽器開啟 http://localhost:5173 即可預覽"
+echo "  瀏覽器開啟 http://localhost:8080 即可預覽"
 echo "========================================="
 echo ""
