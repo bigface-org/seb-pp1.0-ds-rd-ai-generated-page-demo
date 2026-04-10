@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/tzuchieh.wang/Desktop/project/exercise/seb-pp1.0-ds-rd-ai-generated-page-demo/setup.sh",
+            "command": "bash ./setup.sh",
             "timeout": 120,
             "statusMessage": "執行 setup.sh..."
           }
