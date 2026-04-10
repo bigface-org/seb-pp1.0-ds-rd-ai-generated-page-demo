@@ -27,27 +27,27 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
   fail "這個腳本只支援 Mac，請聯絡 RD 協助安裝。"
 fi
 
-# ── 2. 檢查 Node 是否已安裝且版本符合 ────────
-MAJOR_REQUIRED=$(echo "$NODE_REQUIRED" | cut -d. -f1)
+# ── 2. 確認 nvm 是否已安裝 ───────────────────
+export NVM_DIR="$HOME/.nvm"
+if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+  info "未偵測到 nvm，正在安裝..."
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  ok "nvm 安裝完成"
+fi
+# 載入 nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-if command -v node &> /dev/null; then
-  MAJOR_INSTALLED=$(node -v | sed 's/v//' | cut -d. -f1)
-  if [ "$MAJOR_INSTALLED" -ge "$MAJOR_REQUIRED" ]; then
-    ok "Node $(node -v) 已安裝，符合需求，略過"
-  else
-    info "目前 Node 版本太舊（$(node -v)），需要 v${NODE_REQUIRED}+"
-    info "請前往 https://nodejs.org 下載安裝最新 LTS 版本，完成後重新執行此腳本。"
-    open "https://nodejs.org"
-    exit 1
-  fi
-else
-  info "未偵測到 Node，正在開啟下載頁面..."
-  info "請下載並安裝 LTS 版本，完成後重新執行此腳本。"
-  open "https://nodejs.org"
-  exit 1
+if ! command -v nvm &> /dev/null; then
+  fail "nvm 載入失敗，請重新開啟終端機後再試。"
 fi
 
-# ── 3. 確認 yarn 是否已安裝 ──────────────────
+# ── 3. 安裝並切換至指定 Node 版本 ────────────
+info "切換至 Node v${NODE_REQUIRED}..."
+nvm install "$NODE_REQUIRED"
+nvm use "$NODE_REQUIRED"
+ok "Node $(node -v) 就緒"
+
+# ── 4. 確認 yarn 是否已安裝 ──────────────────
 if ! command -v yarn &> /dev/null; then
   info "未偵測到 yarn，正在安裝..."
   npm install -g yarn
@@ -56,7 +56,7 @@ else
   ok "yarn $(yarn -v) 已安裝，略過"
 fi
 
-# ── 4. 安裝專案 dependencies ─────────────────
+# ── 5. 安裝專案 dependencies ─────────────────
 if [ ! -f "package.json" ]; then
   fail "找不到 package.json，請確認你在正確的專案資料夾裡。"
 fi
@@ -65,7 +65,7 @@ info "安裝專案套件..."
 yarn install
 ok "套件安裝完成"
 
-# ── 5. 完成 ──────────────────────────────────
+# ── 6. 完成 ──────────────────────────────────
 echo ""
 echo "========================================="
 ok "環境安裝完成！"
