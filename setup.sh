@@ -42,8 +42,12 @@ if ! command -v nvm &> /dev/null; then
 fi
 
 # ── 3. 安裝並切換至指定 Node 版本 ────────────
-info "切換至 Node v${NODE_REQUIRED}..."
-nvm install "$NODE_REQUIRED"
+if nvm ls "$NODE_REQUIRED" | grep -q "$NODE_REQUIRED"; then
+  ok "Node v${NODE_REQUIRED} 已安裝，略過"
+else
+  info "安裝 Node v${NODE_REQUIRED}..."
+  nvm install "$NODE_REQUIRED"
+fi
 nvm use "$NODE_REQUIRED"
 ok "Node $(node -v) 就緒"
 
