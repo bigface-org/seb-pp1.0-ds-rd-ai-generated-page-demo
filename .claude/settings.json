@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__Claude_Preview__preview_start",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/tzuchieh.wang/Desktop/project/exercise/seb-pp1.0-ds-rd-ai-generated-page-demo/setup.sh",
+            "timeout": 120,
+            "statusMessage": "執行 setup.sh..."
+          }
+        ]
+      }
+    ]
+  }
+}

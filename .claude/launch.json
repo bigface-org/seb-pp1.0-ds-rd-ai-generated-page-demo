@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["dev"],
+      "runtimeExecutable": "/Users/tzuchieh.wang/.nvm/versions/node/v22.22.0/bin/node",
+      "runtimeArgs": ["/Users/tzuchieh.wang/.nvm/versions/node/v22.22.0/bin/yarn", "dev"],
       "port": 8080
     }
   ]
