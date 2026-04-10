@@ -1,14 +1,13 @@
 {
   "hooks": {
-    "PreToolUse": [
+    "SessionStart": [
       {
-        "matcher": "mcp__Claude_Preview__preview_start",
+        "matcher": "startup",
         "hooks": [
           {
             "type": "command",
             "command": "bash ./setup.sh",
-            "timeout": 120,
-            "statusMessage": "執行 setup.sh..."
+            "timeout": 120
           }
         ]
       }
