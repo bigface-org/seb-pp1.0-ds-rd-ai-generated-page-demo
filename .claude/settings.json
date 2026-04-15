@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ./setup.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}
