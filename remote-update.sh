@@ -5,6 +5,7 @@ BRANCH=$(git branch --show-current 2>/dev/null)
 
 # ── 若不在 main，直接離開 ──────────────────────
 if [ "$BRANCH" != "main" ]; then
+  echo "目前分支：$BRANCH，略過從 remote 更新"
   exit 0
 fi
 
