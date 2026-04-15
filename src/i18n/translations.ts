@@ -15,7 +15,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.currency': 'TWD',
 
     // Hero
-    'hero.title': '精選國際馬拉松｜全球運動賽事報名+住宿',
+    'hero.title': '馬拉松｜全球運動賽事報名+住宿',
     'hero.description': 'AsiaYo提供2026-2027日本、韓國、台灣馬拉松等多元運動賽事報名+住宿，包含經典賽事如富士山馬拉松、札幌馬拉松、濟州馬拉松，以及泰國高爾夫與富士山登山等海內外運動行程，挑戰自我的同時也享受旅行，讓旅程更豐富刺激！',
 
     // Tabs
