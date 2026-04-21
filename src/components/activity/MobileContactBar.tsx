@@ -13,7 +13,7 @@ const MobileContactBar = () => {
         <img src="https://img.asiayo.com/static/images/line.svg" alt="LINE" className="w-4 h-4" />
         {t('contact.line')}
       </DsButton>
-      <DsButton variant="outline" level="primary" size="medium" type="button" className="flex-1" onClick={() => window.open('#')}>
+      <DsButton variant="solid" level="primary" size="medium" type="button" className="flex-1" onClick={() => window.open('#')}>
         <Phone size={16} fill="currentColor" />
         {t('contact.agent')}
       </DsButton>

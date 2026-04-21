@@ -4,7 +4,7 @@
     {
       "name": "dev",
       "runtimeExecutable": "/bin/sh",
-      "runtimeArgs": ["-c", "export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && yarn dev"],
+      "runtimeArgs": ["-c", "export PATH=\"$HOME/.nvm/versions/node/v22.22.2/bin:$PATH\" && yarn dev"],
       "port": 8080
     }
   ]
